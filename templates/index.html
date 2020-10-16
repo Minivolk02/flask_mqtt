@@ -20,20 +20,6 @@
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ae4a1eea-edab-4165-a505-d0f3021dcb7b"
         type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('form').submit(function(){
-        var $form = $(this);
-        $.ajax({
-            type: $form.attr('method'),
-            url: $form.attr('action'),
-            contentType: 'application/json;charset=UTF-8',
-            data: JSON.stringify($form.serializeArray()),
-            dataType: "json",
-            contentType: "application/json"
-        });
-    });
-});
-
 ymaps.ready(init);
 
 function init() {
@@ -64,42 +50,11 @@ function init() {
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <h5 class="card-header">Форма</h5>
-                <div class="card-body">
-                    <form method="post" action="{{ url_for('index') }}">
-                        <div class="form-group row">
-                            <label for="IdAddress" class="col-xs-4 col-form-label">ID address:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="id_server" id="IdAddress"
-                                       placeholder="ID Server" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="Something1" class="col-xs-4 col-form-label">Something1:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="something1" id="Something1"
-                                       placeholder="Something1" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="Something2" class="col-xs-4 col-form-label">Something2:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="something2" id="Something2"
-                                       placeholder="Something2" required>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Добавить сервер">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div id="map"></div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map"></div>
     </div>
+  </div>
 </div>
 {% endblock %}
