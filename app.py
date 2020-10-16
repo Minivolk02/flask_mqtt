@@ -23,18 +23,6 @@ class MqttServers(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == "POST":
-        server_id = request.get_json()
-        print(server_id)
-        '''new_server = MqttServers(id_address=server_id)
-
-        try:
-            db.session.add(new_server)
-            db.session.commit()
-            return redirect('/')
-        except:
-            return "Sorry, error" '''
-
     return render_template('index.html')
 
 
