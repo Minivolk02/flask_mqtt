@@ -20,20 +20,6 @@
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ae4a1eea-edab-4165-a505-d0f3021dcb7b"
         type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('form').submit(function(){
-        var $form = $(this);
-        $.ajax({
-            type: $form.attr('method'),
-            url: $form.attr('action'),
-            contentType: 'application/json;charset=UTF-8',
-            data: JSON.stringify($form.serializeArray()),
-            dataType: "json",
-            contentType: "application/json"
-        });
-    });
-});
-
 ymaps.ready(init);
 
 function init() {
